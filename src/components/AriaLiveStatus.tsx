@@ -1,9 +1,18 @@
+import type { JSX } from "react";
+
+type AriaLiveStatusProps = {
+    currentWord: string;
+    lastGuessedLetter: string;
+    guessedLetters: string[];
+    numGuessesLeft: number;
+}
+
 export default function AriaLiveStatus({
     currentWord,
     lastGuessedLetter,
     guessedLetters,
     numGuessesLeft
-}) {
+} : AriaLiveStatusProps ) : JSX.Element {
     return (
         <section
             className="sr-only"
@@ -17,8 +26,8 @@ export default function AriaLiveStatus({
                 }
                 You have {numGuessesLeft} attempts left.
             </p>
-            <p>
-                Current word: {currentWord.split("").map(letter =>
+            <p> 
+                Current word: {currentWord.split("").map( ( letter : string ) =>
                 guessedLetters.includes(letter) ? letter + "." : "blank."
             ).join(" ")}
             </p>

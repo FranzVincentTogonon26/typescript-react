@@ -1,5 +1,5 @@
 
-type LanguagesProp = {
+export type LanguagesProp = {
     name: string;
     backgroundColor: string;
     color: string;
